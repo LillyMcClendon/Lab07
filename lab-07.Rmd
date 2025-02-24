@@ -67,3 +67,18 @@ df <- tribble(
 
 ### Exercise 2
 
+```{r kansas-data-new-visualization}
+library(ggplot2)
+ggplot(df, aes(x = date, y = count, group = mask, color = mask)) +
+  geom_line() + 
+  labs(title = "New Visualization of Kansas Covid-19 Average of Daily Cases Per 100,000", subtitle = "Mask Mandate Counties vs. No Mask Mandate Counties", caption = "Source: Kansas Department of Health and Environment", x = "Date", y = "Average Daily Cases Per 100,000") + 
+  scale_color_manual(values=c('darkblue', 'darkred')) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  theme(plot.title = element_text(hjust=0.5))
+```
+
+
+
+
+
+
