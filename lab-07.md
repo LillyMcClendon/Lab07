@@ -1,7 +1,7 @@
 Lab 07 - Conveying the right message through visualisation
 ================
-Insert your name here
-Insert date here
+Lilly McClendon
+02-28-2025
 
 ### Load packages and data
 
