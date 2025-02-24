@@ -81,6 +81,8 @@ ggplot(df, aes(x = date, y = count, group = mask, color = mask)) +
 
 In my new visualization, I plotted both the Mask Mandate counties and No Mask Mandate counties on the same y-axis scale. Because they are both on the same scale, they are much easier to compare. In my visualization it is much clearer that in this data set, counties with mask mandate had a higher number of average daily Covid-19 cases than counties without mask mandates. In the original visualization, it seemed that for most of July there wasn't much of a difference in average daily cases between mask mandate counties and no mask mandate counties and towards the end of July and early August, there was a much lower number of average daily Covid-19 cases than counties without a mask mandate. 
 
+### Exercise 4
 
+This visualization tells us that in this data set there were fewer average daily cases of Covid-19 in no mask mandate counties than mask mandate counties. This does not line up with what I know about mask wearing, however this was an observational study which may be subjected to potential confounds. It may be that masks are protective of Covid-19, but other variables obscured these effects in the current data. 
 
 
