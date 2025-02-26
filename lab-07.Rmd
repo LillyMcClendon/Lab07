@@ -85,4 +85,9 @@ In my new visualization, I plotted both the Mask Mandate counties and No Mask Ma
 
 This visualization tells us that in this data set there were fewer average daily cases of Covid-19 in no mask mandate counties than mask mandate counties. This does not line up with what I know about mask wearing, however this was an observational study which may be subjected to potential confounds. It may be that masks are protective of Covid-19, but other variables obscured these effects in the current data. 
 
+### Exercise 5 
+
+The factors from my accurate visualization regarding mask-wearing and COVID-19 that reflect the actual message conveyed by the data is that the scale of the axes is the same for both the mask mandate counties and the no-mask mandate counties. This makes it easier to visual compare because in the original visualization, for the mask wearing counties 25 
+per 100,000 is the same location as 14 per 100,000 for the no-mask wearing counties. So when just looking at the visualization overall and not specifically at the axes, it easily seems as though there are similar or fewer cases of COVID-19 for the mask mandate counties compared to the no mask mandate counties. The line graph also allows the data to be shown day by day and how the trends change. Also, using the cases per 100,000 as a variable is helpful in conveying the accurate method because it allows for direct comparison between the two counties even if they have different total populations. 
+
 
