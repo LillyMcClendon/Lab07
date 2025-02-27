@@ -90,4 +90,100 @@ This visualization tells us that in this data set there were fewer average daily
 The factors from my accurate visualization regarding mask-wearing and COVID-19 that reflect the actual message conveyed by the data is that the scale of the axes is the same for both the mask mandate counties and the no-mask mandate counties. This makes it easier to visual compare because in the original visualization, for the mask wearing counties 25 
 per 100,000 is the same location as 14 per 100,000 for the no-mask wearing counties. So when just looking at the visualization overall and not specifically at the axes, it easily seems as though there are similar or fewer cases of COVID-19 for the mask mandate counties compared to the no mask mandate counties. The line graph also allows the data to be shown day by day and how the trends change. Also, using the cases per 100,000 as a variable is helpful in conveying the accurate method because it allows for direct comparison between the two counties even if they have different total populations. 
 
+### Exercise 6 
+
+The new visualization I will use to convey the opposite message, I will create a two line plots side by side. However, these line plots do not have any y axis scale labels and although there are dashes in the same y-axis location, they convey two different scales, making it appear as though the no-mask mandate counties had higher cases of Covid-19. I will also create a second visualization to convey the opposite message. I will create a bar chart except I will have the data for the no- mask mandate counties be per 500,000 population and the data for the mask mandate counties remain per 100,000 population. 
+
+### Exercise 7 
+
+```{r kansas-data-opposite-message-visualization-yaxis-labels}
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(hrbrthemes)
+
+df_mask <- df %>% 
+  filter(mask == "mask") %>%
+  filter(date != "7/12/2020")
+
+df_no_mask <- df %>% 
+  filter(mask == "no mask") %>% 
+  filter(date != "7/12/2020")
+
+p1 <- ggplot(df_mask, aes(x=date, y=count, group = mask)) + 
+  geom_line(color="darkblue") + 
+  ggtitle("Mask Mandate Counties") +
+  ylim(15,25) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+p2 <- ggplot(df_no_mask, aes(x=date, y=count, group = mask)) + 
+  geom_line(color="darkred") + 
+  ggtitle("No-Mask Mandate Counties") + 
+  ylim(7,11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p1 + p2
+```
+
+
+```{r kansas-data-opposite-message-visualization}
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(hrbrthemes)
+
+df_mask <- df %>% 
+  filter(mask == "mask") %>%
+  filter(date != "7/12/2020")
+
+df_no_mask <- df %>% 
+  filter(mask == "no mask") %>% 
+  filter(date != "7/12/2020")
+
+p1 <- ggplot(df_mask, aes(x=date, y=count, group = mask)) + 
+  geom_line(color="darkblue") + 
+  ggtitle("Mask Mandate Counties") +
+  ylim(15,25) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        axis.text.y=element_blank()
+        ) 
+
+p2 <- ggplot(df_no_mask, aes(x=date, y=count, group = mask)) + 
+  geom_line(color="darkred") + 
+  ggtitle("No-Mask Mandate Counties") + 
+  ylim(7,11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+                axis.text.y=element_blank()
+        )
+
+p1 + p2
+```
+
+
+```{r new-misleading-visualization-bar-plot}
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+
+df_no_mask <- df_no_mask %>% 
+  mutate(per500k = case_when(mask == "no mask" ~ count * 5))
+
+par(mfrow=c(1,2))
+
+plot1 <- ggplot(df_mask, aes(x = date, y = count)) + 
+  geom_bar(stat = "identity", width = .75, fill = "darkblue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5)) +
+  coord_cartesian(ylim=c(0, 50)) + 
+  labs(title = "Mask Mandate Counties") 
+
+
+plot2 <- ggplot(df_no_mask, aes(x = date, y = per500k)) + 
+  geom_bar(stat = "identity", width = .75, fill = "darkred") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5)) + 
+  labs(title = "No-Mask Mandate Counties", y = "count") 
+
+grid.arrange(plot1, plot2, ncol=2)
+```
+
+
 
