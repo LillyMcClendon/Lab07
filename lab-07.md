@@ -1,4 +1,4 @@
-Lab 07 - Conveying the right message through visualisation
+Lab 07 - Conveying the right message through visualization
 ================
 Lilly McClendon
 02-28-2025
